@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1260.0" prefHeight="720.0" prefWidth="1260.0" style="-fx-background-color: #252836;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="464.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="596.0" />
+      <TextField AnchorPane.bottomAnchor="500.0" AnchorPane.rightAnchor="200.0" />
+      <TextField layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="370.0" AnchorPane.rightAnchor="200.0" />
+      <Label layoutX="908.0" layoutY="143.0" prefHeight="32.0" prefWidth="209.0" text="Enter your email" textFill="WHITE" AnchorPane.bottomAnchor="545.0" AnchorPane.rightAnchor="143.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
