@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.tablemasteradmin.admintablemaster.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1280.0" styleClass="anchor-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="203.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="203.0" />
+      <TextField fx:id="username" layoutX="898.0" layoutY="205.0" style="-fx-background-color: #343848;" text="Enter your username" AnchorPane.leftAnchor="898.0" AnchorPane.topAnchor="205.0" />
+      <TextField fx:id="password" layoutX="910.0" layoutY="289.0" style="-fx-background-color: #343848;" styleClass="text-field" text="Enter your password" AnchorPane.leftAnchor="898.0" AnchorPane.topAnchor="289.0" />
+      <Label layoutX="896.0" layoutY="173.0" stylesheets="@styles.css" text="Username" AnchorPane.topAnchor="173.0">
+         <styleClass>
+            <String fx:value="textLabel" />
+            <String fx:value="Label" />
+         </styleClass></Label>
+      <Label layoutX="898.0" layoutY="257.0" stylesheets="@styles.css" text="Password" AnchorPane.bottomAnchor="475.6666666666667">
+         <styleClass>
+            <String fx:value="textLabel" />
+            <String fx:value="Label" />
+         </styleClass></Label>
+      <Button fx:id="login" layoutX="997.0" layoutY="349.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="50.0" styleClass="button-color" stylesheets="@styles.css" text="Login" AnchorPane.bottomAnchor="375.6666666666667" />
+      <ImageView fitHeight="53.0" fitWidth="54.0" layoutX="1211.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../Downloads/Logo_Icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
