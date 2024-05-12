@@ -1,0 +1,31 @@
+
+.anchor-pane {
+    -fx-background-color: #1F1D2B;
+}
+
+
+.textLabel {
+    -fx-font-family: 'Poppins', sans-serif;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D6D6D6;
+}
+
+
+
+.button-color {
+    -fx-background-color:  #EA6969;
+    -fx-text-fill:  #D6D6D6;
+}
+
+
+.button:hover {
+    -fx-background-color: #FA868666;
+    -fx-text-fill:#EA6969;
+
+}
+
+
+.text-field{
+    -fx-text-fill: #D6D6D6;
+    -fx-font-family: 'Poppins', sans-serif;
+}
