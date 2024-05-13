@@ -18,8 +18,14 @@ public class Admin {
             System.out.println("I+nvalid email");
 
         }
+    }
 
+    public Admin(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
+    public Admin() {
     }
 
     public String getUsername() {

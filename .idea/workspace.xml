@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="875697b6-e3d6-497f-a489-e5ef937c237d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Incorrect-Password.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelperFunction/Auth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/MenuItemModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/AdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/MainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/MenuService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/LoginPage.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Incorrect-Password.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/login-screen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +31,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -75,28 +83,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "userlogin",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/IT/OneDrive/Documents/GitHub/Admin-TableMaster",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;userlogin&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/IT/OneDrive/Documents/GitHub/Admin-TableMaster&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tablemasteradmin.admintablemaster.HelloApplication" />
+      <module name="Admin-TableMaster" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tablemasteradmin.admintablemaster.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HelloApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -113,10 +141,25 @@
       <workItem from="1715504619091" duration="8000" />
       <workItem from="1715504712083" duration="1038000" />
       <workItem from="1715507155714" duration="10150000" />
+      <workItem from="1715531081873" duration="600000" />
+      <workItem from="1715577921386" duration="3292000" />
+      <workItem from="1715597522278" duration="397000" />
+      <workItem from="1715604457250" duration="46000" />
+      <workItem from="1715613828780" duration="1803000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
