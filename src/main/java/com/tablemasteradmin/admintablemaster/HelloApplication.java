@@ -14,17 +14,17 @@ public class HelloApplication extends Application {
 
         boolean loggedInStatus = Auth.checkSignedInStatus();
 
-        FXMLLoader fxmlLoader;
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Scene scene = null;
 
         if (loggedInStatus) {
             fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Afterlogin.fxml"));
+            scene = new Scene(fxmlLoader.load(), 1200, 720);
         } else {
             fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-screen.fxml"));
-        }
+            scene = new Scene(fxmlLoader.load(), 1200, 720);
+            }
 
-        Scene scene = new Scene(fxmlLoader.load(), 1200, 720);
-        LoginController controller = fxmlLoader.getController();
-        controller.setStage(stage);
         stage.setScene(scene);
         stage.show();
     }
