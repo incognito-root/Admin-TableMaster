@@ -17,10 +17,10 @@ public class HelloController {
     TilePane tiledpane;
 
     @FXML
-   AnchorPane mainHomeArea;
+    AnchorPane mainHomeArea;
 
     @FXML
-   StackPane mainStackPane;
+    StackPane mainStackPane;
 
     ArrayList<MenuItemModel> menuItems = new ArrayList<>();
 
@@ -32,20 +32,18 @@ public class HelloController {
         menuItems.add(menuItem2);
         try {
             getdata();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void getdata() throws IOException {
-        for(MenuItemModel menuItem : menuItems) {
+        for (MenuItemModel menuItem : menuItems) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             MenuItemController menuItemController = fxmlLoader.getController();
-            menuItemController.setData(menuItem.getMenuItemName(),String.valueOf(menuItem.getMenuItemPrice()));
-           tiledpane.getChildren().add(anchorPane);
-
-
+            menuItemController.setData(menuItem.getMenuItemName(), String.valueOf(menuItem.getMenuItemPrice()));
+            tiledpane.getChildren().add(anchorPane);
         }
     }
 }
