@@ -22,7 +22,6 @@ public class Auth {
         }
 
         username = usernameFromCookie;
-        System.out.println(username);
 
         return true;
     }
