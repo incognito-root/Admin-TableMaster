@@ -1,17 +1,20 @@
 package com.tablemasteradmin.admintablemaster;
 
+import com.tablemasteradmin.admintablemaster.model.MenuItemModel;
+import com.tablemasteradmin.admintablemaster.services.MenuService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TitledPane;
+import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class HelloController {
+public class HelloController implements Initializable {
 
     @FXML
     TilePane tiledpane;
@@ -24,16 +27,17 @@ public class HelloController {
 
     ArrayList<MenuItemModel> menuItems = new ArrayList<>();
 
-    MenuItemModel menuItem1 = new MenuItemModel("Pizza", 300);
-    MenuItemModel menuItem2 = new MenuItemModel("Burger", 200);
-
-    public void initialize() {
-        menuItems.add(menuItem1);
-        menuItems.add(menuItem2);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            getdata();
+            MenuService menuService = new MenuService();
+            menuService.setAllMenuItems();
+            menuItems  = menuService.getAllMenuItems();
+
+            this.getdata();
+
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
