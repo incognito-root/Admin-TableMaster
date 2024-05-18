@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,25 +8,24 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainHomeArea" maxHeight="720.0" maxWidth="1200.0" minWidth="1200.0" prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasteradmin.admintablemaster.HelloController">
+<AnchorPane fx:id="mainHomeArea" maxHeight="726.0" maxWidth="1210.0" minWidth="1200.0" prefHeight="725.0" prefWidth="1207.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasteradmin.admintablemaster.HelloController">
     <children>
-        <StackPane fx:id="mainStackPane">
+        <StackPane fx:id="mainStackPane" layoutY="-6.0" prefHeight="725.0" prefWidth="1207.0">
             <children>
-                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1200.0" prefHeight="720.0" prefWidth="1200.0" style="-fx-background-color: #252836;" stylesheets="@styles.css">
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="715.0" minWidth="1197.0" prefHeight="721.0" prefWidth="1215.0" style="-fx-background-color: #252836;" stylesheets="@styles.css">
                     <children>
-                        <TextField editable="false" layoutX="66.0" layoutY="23.0" text="Admin's Dashboard" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="23.0">
-                            <styleClass>
-                                <String fx:value="transparent-background" />
-                                <String fx:value="h1" />
-                                <String fx:value="text-main" />
-                            </styleClass>
-                        </TextField>
+                  <Label layoutX="65.0" layoutY="17.0" prefHeight="76.0" prefWidth="269.0" text="Admin's Dashboard" textFill="#fffafa">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Label>
                         <Rectangle arcHeight="27.0" arcWidth="27.0" fill="#444858" height="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="100.0" AnchorPane.rightAnchor="360.0" AnchorPane.topAnchor="30.0" />
                         <TextField promptText=" Enter" styleClass="input-field" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="30.0" />
-                        <ScrollPane hbarPolicy="NEVER" layoutX="-2.0" layoutY="108.0" prefHeight="612.0" prefWidth="1180.0" styleClass="anchor-pane">
+                        <ScrollPane hbarPolicy="NEVER" layoutX="-2.0" layoutY="108.0" prefHeight="612.0" prefWidth="1203.0" styleClass="anchor-pane">
                             <content>
-                                <TilePane fx:id="tiledpane" maxHeight="720.0" maxWidth="1200.0" minHeight="600.0" minWidth="1160.0" prefHeight="600.0" prefWidth="1160.0" style="-fx-background-color: #252836;" styleClass="anchor-pane" />
+                                <TilePane fx:id="tiledpane" hgap="10.0" maxHeight="720.0" maxWidth="1203.0" minHeight="600.0" minWidth="1160.0" prefHeight="611.0" prefWidth="1203.0" style="-fx-background-color: #252836;" styleClass="anchor-pane" vgap="10.0" />
                             </content>
                         </ScrollPane>
                         <Line endX="1001.0" endY="38.0" layoutX="199.0" layoutY="70.0" startX="-201.0" startY="38.0" stroke="#fcfcfc" />
