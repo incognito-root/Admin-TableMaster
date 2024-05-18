@@ -1,6 +1,10 @@
 package com.tablemasteradmin.admintablemaster;
 
 import com.tablemasteradmin.admintablemaster.model.InputValidations;
+import com.tablemasteradmin.admintablemaster.model.MenuItemModel;
+import com.tablemasteradmin.admintablemaster.services.AdminService;
+import com.tablemasteradmin.admintablemaster.services.MenuService;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,6 +79,15 @@ public class AddMenuItemController implements Initializable {
         InputValidations.clearErrors(nameLabel, firstNameLabelBackup);
     }
 
+    public void onButtonAction(ActionEvent actionEvent) throws IOException {
+        String itemDescription = itemDescriptionTextField.getText();
+        String itemName = itemNameTextField.getText();
+        double itemprice= Double.parseDouble(itemPriceTextField.getText());
+        int servings = Integer.parseInt(itemServingTextField.getText());
+        MenuItemModel menuItemModel=new MenuItemModel(itemName,itemprice,servings,itemDescription);
+        MenuService menuService=new MenuService();
+        menuService.savemenuitem(menuItemModel);
+    }
 
     public void validate(Event e)
     {

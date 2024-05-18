@@ -8,27 +8,27 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1280.0" styleClass="anchor-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1280.0" styleClass="anchor-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasteradmin.admintablemaster.AddMenuItemController">
    <children>
-      <TextField fx:id="itemNameTextField" layoutX="838.0" layoutY="161.0" prefHeight="48.0" prefWidth="232.0" promptText="Item Name" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
+      <TextField fx:id="itemNameTextField" layoutX="838.0" layoutY="161.0" onKeyReleased="#validate" prefHeight="48.0" prefWidth="232.0" promptText="Item Name" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <TextField fx:id="itemServingTextField" layoutX="838.0" layoutY="506.0" promptText="Serving" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
+      <TextField fx:id="itemServingTextField" layoutX="838.0" layoutY="506.0" onKeyReleased="#validate" promptText="Serving" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <TextField fx:id="itemDescriptionTextField" layoutX="838.0" layoutY="390.0" promptText="Item Description" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
+      <TextField fx:id="itemDescriptionTextField" layoutX="838.0" layoutY="390.0" onKeyReleased="#validate" promptText="Item Description" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <TextField fx:id="itemPriceTextField" layoutX="838.0" layoutY="279.0" prefHeight="44.0" prefWidth="175.0" promptText="Item Price" stylesheets="@styles.css">
+      <TextField fx:id="itemPriceTextField" layoutX="838.0" layoutY="279.0" onKeyReleased="#validate" prefHeight="44.0" prefWidth="175.0" promptText="Item Price" stylesheets="@styles.css">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
@@ -39,7 +39,7 @@
             <Image url="@../../../download%20(1).jpeg" />
          </image>
       </ImageView>
-      <Button fx:id="addItemLabel" layoutX="832.0" layoutY="614.0" minWidth="269.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="269.0" styleClass="add-buttons" stylesheets="@styles.css" text="ADD ITEM" AnchorPane.rightAnchor="178.66666666666674" />
+      <Button fx:id="addItemLabel" layoutX="832.0" layoutY="614.0" minWidth="269.0" mnemonicParsing="false" onAction="#onButtonAction" prefHeight="56.0" prefWidth="269.0" styleClass="add-buttons" stylesheets="@styles.css" text="ADD ITEM" AnchorPane.rightAnchor="178.66666666666674" />
       <Label fx:id="itemNameLabel" layoutX="838.0" layoutY="133.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Name" AnchorPane.leftAnchor="838.0" />
       <Label fx:id="itemServingLabel" layoutX="838.0" layoutY="480.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Serving" AnchorPane.leftAnchor="838.0" />
       <Label fx:id="itemDescriptionLabel" layoutX="838.0" layoutY="362.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Description" AnchorPane.leftAnchor="838.0" />

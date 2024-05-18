@@ -42,6 +42,14 @@ public class MenuItemModel {
         this.menuItemImage = menuItemImage;
     }
 
+    public MenuItemModel( String menuItemName, double menuItemPrice, int menuItemServing, String menuItemDescription){
+        this.menuItemName = menuItemName;
+        this.menuItemPrice = menuItemPrice;
+        this.menuItemServing = menuItemServing;
+        this.menuItemDescription = menuItemDescription;
+
+    }
+
     public MenuItemModel() {
     }
 
