@@ -4,6 +4,7 @@ package com.tablemasteradmin.admintablemaster.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.tablemasteradmin.admintablemaster.model.Admin;
 import com.tablemasteradmin.admintablemaster.model.MenuItemModel;
 
 import java.io.IOException;
@@ -28,6 +29,16 @@ public class MenuService extends MainService {
 
  public ArrayList<MenuItemModel> getAllMenuItems() {
        return allMenuItems;
+    }
+
+    public boolean savemenuitem(MenuItemModel menuitem) throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        String reqBody = mapper.writeValueAsString(menuitem);
+
+        int result = postRequest("menu/addMenuItem", reqBody).statusCode();
+
+        return result == 200; // OK
     }
 
 

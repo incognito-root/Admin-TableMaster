@@ -15,7 +15,7 @@ public class Admin {
         try {
             setEmail(email);
         } catch (EmailException e) {
-            System.out.println("I+nvalid email");
+            System.out.println("Invalid email");
 
         }
     }
