@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class AddMenuItems {
+public class AddMenuItemController {
 
         @FXML
         private Button addItemLabel;
