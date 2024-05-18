@@ -1,6 +1,7 @@
 
 .anchor-pane {
     -fx-background-color: #1F1D2B;
+
 }
 
 
@@ -15,6 +16,14 @@
     -fx-text-fill:  #D6D6D6;
 }
 
+.menu-textField {
+    -fx-background-color:  #343848;
+    -fx-text-fill:  #D6D6D6;
+    -fx-pref-width: 232px;
+    -fx-pref-height: 59px;
+    -fx-font-size: 14px;
+
+}
 
 .button:hover {
     -fx-background-color: #FA868666;
@@ -237,4 +246,16 @@
     -fx-padding: 12;
     -fx-background-radius: 55;
     -fx-background-color: #000000;
+}
+
+.add-buttons {
+    -fx-background-color: rgba(0, 0, 0, 0);
+
+    -fx-background-radius: 15px;
+    -fx-pref-width: 232px;
+    -fx-pref-height: 59px;
+    -fx-border-radius: 15;
+    -fx-border-color: #EA6969;
+    -fx-text-fill: #EA6969;
+    -fx-font-weight: 400;
 }
