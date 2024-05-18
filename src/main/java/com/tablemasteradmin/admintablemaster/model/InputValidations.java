@@ -2,7 +2,7 @@ package com.tablemasteradmin.admintablemaster.model;
 
 import javafx.scene.control.Label;
 
-public class InputValidation {
+public class InputValidations {
     public static String errorMessage = "";
 
     public static void setErrors(Label label) {
@@ -19,7 +19,7 @@ public class InputValidation {
     }
 
     public static boolean validateAlpha(String stringToCheck) {
-        if (stringToCheck == null || stringToCheck.isEmpty()) {
+        if (isEmpty(stringToCheck)) {
             errorMessage = ": cannot be empty";
             return false;
         }
@@ -33,7 +33,7 @@ public class InputValidation {
     }
 
     public static boolean validateLength(String stringToCheck, int minLength) {
-        if (stringToCheck == null || stringToCheck.isEmpty()) {
+        if (isEmpty(stringToCheck)) {
             errorMessage = ": cannot be empty";
             return false;
         }
@@ -47,7 +47,7 @@ public class InputValidation {
     }
 
     public static boolean validateLength(String stringToCheck, int minLength, int maxLength) {
-        if (stringToCheck == null || stringToCheck.isEmpty()) {
+        if (isEmpty(stringToCheck)) {
             errorMessage = ": cannot be empty";
             return false;
         }
@@ -61,7 +61,7 @@ public class InputValidation {
     }
 
     public static boolean validateEmail(String stringToCheck) {
-        if (stringToCheck == null || stringToCheck.isEmpty()) {
+        if (isEmpty(stringToCheck)) {
             errorMessage = ": cannot be empty";
             return false;
         }
@@ -80,7 +80,7 @@ public class InputValidation {
     }
 
     public static boolean isDigits(String stringToCheck) {
-        if (stringToCheck == null || stringToCheck.isEmpty()) {
+        if (isEmpty(stringToCheck)) {
             errorMessage = ": cannot be empty";
             return false;
         }
@@ -94,7 +94,7 @@ public class InputValidation {
     }
 
     public static boolean validatePasswordMatch(String password, String confirmPassword) {
-        if (password == null || password.isEmpty() || confirmPassword == null || confirmPassword.isEmpty()) {
+        if (isEmpty(password) || isEmpty(confirmPassword)) {
             errorMessage = ": cannot be empty";
             return false;
         }
@@ -105,5 +105,26 @@ public class InputValidation {
         }
 
         return true;
+    }
+
+    public static boolean validateDouble(String stringToCheck) {
+        if (stringToCheck == null || stringToCheck.trim().isEmpty()) {
+            errorMessage = ": cannot be empty";
+            return false;
+        }
+
+        try {
+            Double.parseDouble(stringToCheck);
+        } catch (NumberFormatException e) {
+            errorMessage = ": invalid format";
+            return false;
+        }
+
+        return true;
+    }
+
+
+    public static boolean isEmpty(String stringToCheck) {
+        return stringToCheck == null || stringToCheck.trim().isEmpty();
     }
 }

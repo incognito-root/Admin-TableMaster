@@ -1,5 +1,7 @@
 package com.tablemasteradmin.admintablemaster;
 
+import com.tablemasteradmin.admintablemaster.model.InputValidations;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -10,15 +12,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddMenuItemController implements Initializable {
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        itemDescriptionLabelBackup= "Item Description";
-        itemNameLabelBackup="Item Name";
-        itemPriceLabelBackup="Item Price";
-        itemServingLabelBackup="Item Serving";
-    }
-
     @FXML
     private Button addItemLabel;
 
@@ -45,6 +38,87 @@ public class AddMenuItemController implements Initializable {
     private String itemServingLabelBackup;
     @FXML
     private TextField itemServingTextField;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        itemDescriptionLabelBackup= "Item Description";
+        itemNameLabelBackup="Item Name";
+        itemPriceLabelBackup="Item Price";
+        itemServingLabelBackup="Item Serving";
+    }
+
+
+    private void disableButton() {
+        addItemLabel.setDisable(true);
+    }
+
+    private void enableButton() {
+        addItemLabel.setDisable(false);
+
+    }
+    private void handleFieldErrors(Label nameLabel, String firstNameLabelBackup, TextField firstNameField) {
+        InputValidations.clearErrors(nameLabel, firstNameLabelBackup);
+
+        if (!InputValidations.validateAlpha(firstNameField.getText())) {
+            InputValidations.setErrors(nameLabel);
+            disableButton();
+            return;
+        }
+        if (!InputValidations.validateLength(firstNameField.getText(), 3, 30)) {
+            InputValidations.setErrors(nameLabel);
+            disableButton();
+            return;
+        }
+
+        enableButton();
+        InputValidations.clearErrors(nameLabel, firstNameLabelBackup);
+    }
+
+
+    public void validate(Event e)
+    {
+        String source = ((TextField) e.getSource()).getId();
+        switch (source) {
+            case "itemDescriptionLabel" -> handleFieldErrors(itemDescriptionLabel, itemDescriptionLabelBackup, itemDescriptionTextField);
+
+            case "itemNameLabel" -> handleFieldErrors(itemNameLabel, itemNameLabelBackup, itemNameTextField);
+
+            case "itemPriceLabel" -> {
+                InputValidations.clearErrors(itemPriceLabel, itemPriceLabelBackup);
+                if (!InputValidations.isDigits(itemPriceLabel.getText())) {
+                    InputValidations.setErrors(itemPriceLabel);
+                    disableButton();
+                    return;
+                }
+
+                enableButton();
+
+                InputValidations.clearErrors(itemPriceLabel, itemPriceLabelBackup);
+            }
+
+
+            case "itemServingLabel" -> {
+                InputValidations.clearErrors(itemServingLabel, itemServingLabelBackup);
+                if (!InputValidations.isDigits(itemServingLabel.getText())) {
+                    InputValidations.setErrors(itemServingLabel);
+                    disableButton();
+                    return;
+                }
+
+                enableButton();
+
+                InputValidations.clearErrors(itemServingLabel, itemServingLabelBackup);
+            }
+
+        }
+
+
+
+
+    }
+
+
+
 
 
 
