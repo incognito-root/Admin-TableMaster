@@ -151,4 +151,6 @@ public class InputValidations {
     public static boolean isEmpty(String stringToCheck) {
         return stringToCheck == null || stringToCheck.trim().isEmpty();
     }
+
+
 }
