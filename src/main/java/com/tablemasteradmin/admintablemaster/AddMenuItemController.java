@@ -104,6 +104,11 @@ public class AddMenuItemController implements Initializable {
                     disableButton();
                     return;
                 }
+                if (!InputValidations.isDouble(itemPriceTextField.getText())) {
+                    InputValidations.setErrors(itemPriceLabel);
+                    disableButton();
+                    return;
+                }
 
                 enableButton();
 
@@ -114,6 +119,11 @@ public class AddMenuItemController implements Initializable {
             case "itemServingLabel" -> {
                 InputValidations.clearErrors(itemServingLabel, itemServingLabelBackup);
                 if (!InputValidations.isDigits(itemServingLabel.getText())) {
+                    InputValidations.setErrors(itemServingLabel);
+                    disableButton();
+                    return;
+                }
+                if(!InputValidations.isInteger(itemServingTextField.getText())){
                     InputValidations.setErrors(itemServingLabel);
                     disableButton();
                     return;

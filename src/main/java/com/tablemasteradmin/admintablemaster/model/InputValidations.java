@@ -92,6 +92,30 @@ public class InputValidations {
 
         return true;
     }
+    public static boolean isDouble(String textfield ){
+        try {
+            Double.parseDouble(textfield);
+            return true;
+
+        }catch (NumberFormatException e){
+            errorMessage=": invalid data type";
+            return false;
+
+        }
+
+    }
+    public static boolean isInteger(String textfield ){
+        try {
+           Integer.parseInt(textfield);
+            return true;
+
+        }catch (NumberFormatException e){
+            errorMessage=": invalid data type";
+            return false;
+
+        }
+
+    }
 
     public static boolean validatePasswordMatch(String password, String confirmPassword) {
         if (isEmpty(password) || isEmpty(confirmPassword)) {
