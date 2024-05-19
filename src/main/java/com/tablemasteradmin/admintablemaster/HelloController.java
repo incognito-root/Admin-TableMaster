@@ -75,7 +75,7 @@ public class HelloController implements Initializable {
     public void onclicksearchbutton(ActionEvent actionEvent) throws IOException {
         String source = searchtextfield.getText();
         for(MenuItemModel menuItem : menuItems) {
-            if(menuItem.getMenuItemName().equalsIgnoreCase(source)) {
+            if(menuItem.getMenuItemName().contains(source)) {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 MenuItemController menuItemController = fxmlLoader.getController();
