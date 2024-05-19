@@ -93,11 +93,11 @@ public class AddMenuItemController implements Initializable {
     {
         String source = ((TextField) e.getSource()).getId();
         switch (source) {
-            case "itemDescriptionLabel" -> handleFieldErrors(itemDescriptionLabel, itemDescriptionLabelBackup, itemDescriptionTextField);
+            case "itemDescriptionTextField" -> handleFieldErrors(itemDescriptionLabel, itemDescriptionLabelBackup, itemDescriptionTextField);
 
-            case "itemNameLabel" -> handleFieldErrors(itemNameLabel, itemNameLabelBackup, itemNameTextField);
+            case "itemNameTextField" -> handleFieldErrors(itemNameLabel, itemNameLabelBackup, itemNameTextField);
 
-            case "itemPriceLabel" -> {
+            case "itemPriceTextField" -> {
                 InputValidations.clearErrors(itemPriceLabel, itemPriceLabelBackup);
                 if (!InputValidations.isDigits(itemPriceLabel.getText())) {
                     InputValidations.setErrors(itemPriceLabel);
@@ -116,7 +116,7 @@ public class AddMenuItemController implements Initializable {
             }
 
 
-            case "itemServingLabel" -> {
+            case "itemServingTextField" -> {
                 InputValidations.clearErrors(itemServingLabel, itemServingLabelBackup);
                 if (!InputValidations.isDigits(itemServingLabel.getText())) {
                     InputValidations.setErrors(itemServingLabel);
