@@ -5,6 +5,7 @@ import com.tablemasteradmin.admintablemaster.services.MenuService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
@@ -24,6 +25,12 @@ public class HelloController implements Initializable {
 
     @FXML
     StackPane mainStackPane;
+
+    @FXML
+    Button addbutton;
+
+    @FXML
+    Button searchbutton;
 
     ArrayList<MenuItemModel> menuItems = new ArrayList<>();
 
