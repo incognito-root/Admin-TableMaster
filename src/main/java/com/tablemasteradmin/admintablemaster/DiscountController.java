@@ -53,9 +53,17 @@ public class DiscountController implements Initializable {
     {
         InputValidations.clearErrors(DiscountPercentageLabels, DiscountPercentageLabelsBackup);
         String discountPercentageTextField= DiscountPercentageTextField.getText();
+
+        if (!InputValidations.isDouble(discountPercentageTextField)) {
+            InputValidations.errorMessage= "Invalid Format";
+            InputValidations.setErrors(DiscountPercentageLabels);
+            disableButton();
+            return;
+        }
+
         double discountPercentage= Double.parseDouble(discountPercentageTextField);
 
-        if (discountPercentage>99 && discountPercentage<1)
+        if (discountPercentage>99 || discountPercentage<1)
         {
             InputValidations.errorMessage= "Percentage out of range";
             InputValidations.setErrors(DiscountPercentageLabels);

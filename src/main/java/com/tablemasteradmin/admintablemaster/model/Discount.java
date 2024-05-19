@@ -21,8 +21,8 @@ public class Discount {
     }
 
     public Discount(String title, double percentage) {
-        setTitle();
-        setPercentage();
+        setTitle(title);
+        setPercentage(percentage);
     }
 
 

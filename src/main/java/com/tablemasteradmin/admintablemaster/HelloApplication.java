@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
         Scene scene = null;
 
         if (loggedInStatus) {
-            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Afterlogin.fxml"));
+            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Discount.fxml"));
             scene = new Scene(fxmlLoader.load(), 1200, 720);
         } else {
             fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-screen.fxml"));
