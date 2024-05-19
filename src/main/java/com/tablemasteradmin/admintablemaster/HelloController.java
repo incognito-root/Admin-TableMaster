@@ -69,6 +69,7 @@ public class HelloController implements Initializable {
     public void onclickaddbutton(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addMenuItems.fxml"));
         scene = new Scene(fxmlLoader.load(), 1200, 720);
+        stage = (Stage) addbutton.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
