@@ -28,7 +28,7 @@
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <TextField fx:id="itemPriceTextField" layoutX="838.0" layoutY="279.0" onKeyReleased="#validate" prefHeight="44.0" prefWidth="175.0" promptText="Item Price" stylesheets="@styles.css">
+      <TextField fx:id="itemPriceTextField" layoutX="838.0" layoutY="279.0" onKeyReleased="#validate" prefHeight="48.0" prefWidth="232.0" promptText="Item Price" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
