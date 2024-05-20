@@ -18,31 +18,31 @@ import java.util.ResourceBundle;
 
 public class AddMenuItemController implements Initializable {
     @FXML
-    private Button addItemLabel;
+     Button addItemLabel;
 
     @FXML
-    private Label itemDescriptionLabel;
-    private String itemDescriptionLabelBackup;
+    Label itemDescriptionLabel;
+    String itemDescriptionLabelBackup;
     @FXML
-    private TextField itemDescriptionTextField;
+    TextField itemDescriptionTextField;
 
     @FXML
-    private Label itemNameLabel;
-    private String itemNameLabelBackup;
+    Label itemNameLabel;
+    String itemNameLabelBackup;
     @FXML
-    private TextField itemNameTextField;
+     TextField itemNameTextField;
 
     @FXML
-    private Label itemPriceLabel;
-    private String itemPriceLabelBackup;
+     Label itemPriceLabel;
+     String itemPriceLabelBackup;
     @FXML
-    private TextField itemPriceTextField;
+    TextField itemPriceTextField;
 
     @FXML
-    private Label itemServingLabel;
-    private String itemServingLabelBackup;
+     Label itemServingLabel;
+     String itemServingLabelBackup;
     @FXML
-    private TextField itemServingTextField;
+     TextField itemServingTextField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -139,6 +139,15 @@ public class AddMenuItemController implements Initializable {
 
 
 
+    }
+
+    public void setmenuitems(MenuItemModel menuItemModel){
+        itemNameTextField.setText(menuItemModel.getMenuItemName());
+        itemDescriptionTextField.setText(menuItemModel.getMenuItemDescription());
+        itemPriceTextField.setText(String.valueOf(menuItemModel.getMenuItemPrice()));
+        itemServingTextField.setText(String.valueOf(menuItemModel.getMenuItemServing()));
+        itemNameTextField.setVisible(false);
+        addItemLabel.setText("Update");
     }
 
 

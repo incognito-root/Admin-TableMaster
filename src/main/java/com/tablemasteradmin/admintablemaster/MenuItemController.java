@@ -1,11 +1,16 @@
 package com.tablemasteradmin.admintablemaster;
 
+import com.tablemasteradmin.admintablemaster.model.MenuItemModel;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class MenuItemController {
 
@@ -20,6 +25,8 @@ public class MenuItemController {
 
     @FXML
     private Text menuItemTitle;
+
+    MenuItemModel selectedMenuItem;
 
     public void setData(String menuItemPrice, String menuItemTitle)  {
         this.menuItemPrice.setText(menuItemPrice);
@@ -49,4 +56,12 @@ public class MenuItemController {
     public void setMenuItemTitle(Text menuItemTitle) {
         this.menuItemTitle = menuItemTitle;
     }
+    public void onclickeditbutton(Event e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addMenuItems.fxml"));
+        AddMenuItemController menuItemController=fxmlLoader.getController();
+        menuItemController.setmenuitems(selectedMenuItem);
+
+
+    }
+
 }
