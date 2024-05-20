@@ -31,6 +31,6 @@
             <Image url="@edit.png" />
          </image>
       </ImageView>
-      <Button fx:id="editbutton" layoutX="160.0" layoutY="193.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="56.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="editbutton" layoutX="160.0" layoutY="193.0" mnemonicParsing="false" onAction="#onclickeditbutton" prefHeight="44.0" prefWidth="56.0" style="-fx-background-color: transparent;" />
     </children>
 </AnchorPane>

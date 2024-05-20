@@ -56,6 +56,7 @@ public class MenuItemController {
     public void setMenuItemTitle(Text menuItemTitle) {
         this.menuItemTitle = menuItemTitle;
     }
+
     public void onclickeditbutton(Event e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addMenuItems.fxml"));
         AddMenuItemController menuItemController=fxmlLoader.getController();
