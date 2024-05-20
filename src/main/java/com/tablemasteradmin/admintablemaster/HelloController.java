@@ -3,6 +3,7 @@ package com.tablemasteradmin.admintablemaster;
 import com.tablemasteradmin.admintablemaster.model.MenuItemModel;
 import com.tablemasteradmin.admintablemaster.services.MenuService;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -73,7 +74,7 @@ public class HelloController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void onclicksearchbutton(ActionEvent actionEvent) throws IOException {
+    public void onclicksearchbutton(Event actionEvent) throws IOException {
         String source = searchtextfield.getText();
 
         tiledpane.getChildren().clear();
