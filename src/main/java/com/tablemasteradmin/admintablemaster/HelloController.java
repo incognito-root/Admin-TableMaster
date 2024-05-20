@@ -69,11 +69,15 @@ public class HelloController implements Initializable {
     public void onclickaddbutton(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addMenuItems.fxml"));
         scene = new Scene(fxmlLoader.load(), 1200, 720);
+        stage = (Stage) addbutton.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
     public void onclicksearchbutton(ActionEvent actionEvent) throws IOException {
         String source = searchtextfield.getText();
+
+        tiledpane.getChildren().clear();
+
         for(MenuItemModel menuItem : menuItems) {
             if(menuItem.getMenuItemName().contains(source)) {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
