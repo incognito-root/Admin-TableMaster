@@ -52,7 +52,7 @@
                      </image>
                   </ImageView>
                   <Button layoutX="854.0" layoutY="29.0" mnemonicParsing="false" onKeyReleased="#onclicksearchbutton" prefHeight="47.0" prefWidth="52.0" style="-fx-background-color: trabsparent;" />
-                  <Button layoutX="450.0" layoutY="29.0" mnemonicParsing="false" text="Discount Settings">
+                  <Button layoutX="450.0" layoutY="29.0" mnemonicParsing="false" onAction="#navigateToDiscount" text="Discount Settings">
                      <styleClass>
                         <String fx:value="secondary-no-fill-button" />
                         <String fx:value="transparent-background" />

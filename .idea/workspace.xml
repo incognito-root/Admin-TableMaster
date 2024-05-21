@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="875697b6-e3d6-497f-a489-e5ef937c237d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/AdminDashboardData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/OrderModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/DiscountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/DiscountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/MenuItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/MenuItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/Discount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/AdminService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Discount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Discount.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

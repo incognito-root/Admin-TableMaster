@@ -98,4 +98,14 @@ public class HelloController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void navigateToDiscount() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Discount.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 720);
+        Stage stage;
+        stage = (Stage) addbutton.getScene().getWindow();
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
