@@ -34,9 +34,9 @@
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <ImageView fitHeight="375.0" fitWidth="569.0" layoutX="144.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="407.0" fitWidth="455.0" layoutX="200.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../download%20(1).jpeg" />
+            <Image url="@menu-item.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="addItemLabel" layoutX="832.0" layoutY="614.0" minWidth="269.0" mnemonicParsing="false" onAction="#onButtonAction" prefHeight="56.0" prefWidth="269.0" styleClass="add-buttons" stylesheets="@styles.css" text="ADD ITEM" AnchorPane.rightAnchor="178.66666666666674" />
