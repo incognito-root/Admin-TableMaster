@@ -10,39 +10,45 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1280.0" styleClass="anchor-pane" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasteradmin.admintablemaster.AddMenuItemController">
    <children>
-      <TextField fx:id="itemNameTextField" layoutX="838.0" layoutY="161.0" onKeyReleased="#validate" prefHeight="48.0" prefWidth="232.0" promptText="Item Name" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
+      <TextField fx:id="itemNameTextField" layoutX="679.0" layoutY="122.0" onKeyReleased="#validate" prefHeight="48.0" prefWidth="232.0" promptText="Item Name" stylesheets="@styles.css" AnchorPane.rightAnchor="369.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <TextField fx:id="itemServingTextField" layoutX="838.0" layoutY="506.0" onKeyReleased="#validate" promptText="Serving" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
+      <TextField fx:id="itemServingTextField" layoutX="679.0" layoutY="467.0" onKeyReleased="#validate" promptText="Serving" stylesheets="@styles.css" AnchorPane.rightAnchor="369.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <TextField fx:id="itemDescriptionTextField" layoutX="838.0" layoutY="390.0" onKeyReleased="#validate" promptText="Item Description" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
+      <TextField fx:id="itemDescriptionTextField" layoutX="679.0" layoutY="351.0" onKeyReleased="#validate" promptText="Item Description" stylesheets="@styles.css" AnchorPane.rightAnchor="369.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
          </styleClass>
       </TextField>
-      <TextField fx:id="itemPriceTextField" layoutX="838.0" layoutY="279.0" onKeyReleased="#validate" prefHeight="48.0" prefWidth="232.0" promptText="Item Price" stylesheets="@styles.css" AnchorPane.rightAnchor="210.0">
+      <TextField fx:id="itemPriceTextField" layoutX="679.0" layoutY="240.0" onKeyReleased="#validate" prefHeight="48.0" prefWidth="232.0" promptText="Item Price" stylesheets="@styles.css" AnchorPane.rightAnchor="369.0">
          <styleClass>
             <String fx:value="menu-textField" />
             <String fx:value="button" />
          </styleClass>
       </TextField>
+<<<<<<< Updated upstream
       <ImageView fitHeight="407.0" fitWidth="455.0" layoutX="200.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@menu-item.jpeg" />
+=======
+      <ImageView fitHeight="764.0" fitWidth="518.0" layoutX="-24.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../eiliv-aceron-ZuIDLSz3XLg-unsplash.jpg" />
+>>>>>>> Stashed changes
          </image>
       </ImageView>
-      <Button fx:id="addItemLabel" layoutX="832.0" layoutY="614.0" minWidth="269.0" mnemonicParsing="false" onAction="#onButtonAction" prefHeight="56.0" prefWidth="269.0" styleClass="add-buttons" stylesheets="@styles.css" text="ADD ITEM" AnchorPane.rightAnchor="178.66666666666674" />
-      <Label fx:id="itemNameLabel" layoutX="838.0" layoutY="133.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Name" AnchorPane.leftAnchor="838.0" />
-      <Label fx:id="itemServingLabel" layoutX="838.0" layoutY="480.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Serving" AnchorPane.leftAnchor="838.0" />
-      <Label fx:id="itemDescriptionLabel" layoutX="838.0" layoutY="362.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Description" AnchorPane.leftAnchor="838.0" />
-      <Label fx:id="itemPriceLabel" layoutX="838.0" layoutY="251.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Price" AnchorPane.leftAnchor="838.0" />
+      <Button fx:id="addItemLabel" layoutX="674.0" layoutY="575.0" minWidth="269.0" mnemonicParsing="false" onAction="#onButtonAction" prefHeight="56.0" prefWidth="269.0" styleClass="add-buttons" stylesheets="@styles.css" text="ADD ITEM" AnchorPane.rightAnchor="337.0" />
+      <Label fx:id="itemNameLabel" layoutX="679.0" layoutY="94.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Name" AnchorPane.leftAnchor="679.0" />
+      <Label fx:id="itemServingLabel" layoutX="679.0" layoutY="441.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Serving" AnchorPane.leftAnchor="679.0" />
+      <Label fx:id="itemDescriptionLabel" layoutX="679.0" layoutY="323.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Description" AnchorPane.leftAnchor="679.0" />
+      <Label fx:id="itemPriceLabel" layoutX="679.0" layoutY="212.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Price" AnchorPane.leftAnchor="679.0" />
    </children>
 </AnchorPane>

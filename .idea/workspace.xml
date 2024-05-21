@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="875697b6-e3d6-497f-a489-e5ef937c237d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/DiscountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/DiscountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/model/Discount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/AdminService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Discount.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Discount.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/addMenuItems.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/addMenuItems.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
