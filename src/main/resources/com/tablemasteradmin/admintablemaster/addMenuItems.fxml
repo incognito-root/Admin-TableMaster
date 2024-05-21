@@ -34,15 +34,9 @@
             <String fx:value="button" />
          </styleClass>
       </TextField>
-<<<<<<< Updated upstream
-      <ImageView fitHeight="407.0" fitWidth="455.0" layoutX="200.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@menu-item.jpeg" />
-=======
       <ImageView fitHeight="764.0" fitWidth="518.0" layoutX="-24.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../eiliv-aceron-ZuIDLSz3XLg-unsplash.jpg" />
->>>>>>> Stashed changes
          </image>
       </ImageView>
       <Button fx:id="addItemLabel" layoutX="674.0" layoutY="575.0" minWidth="269.0" mnemonicParsing="false" onAction="#onButtonAction" prefHeight="56.0" prefWidth="269.0" styleClass="add-buttons" stylesheets="@styles.css" text="ADD ITEM" AnchorPane.rightAnchor="337.0" />
