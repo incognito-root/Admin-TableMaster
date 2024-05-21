@@ -3,6 +3,7 @@ package com.tablemasteradmin.admintablemaster;
 import com.tablemasteradmin.admintablemaster.model.MenuItemModel;
 import com.tablemasteradmin.admintablemaster.services.MenuService;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -62,7 +63,7 @@ public class HelloController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             MenuItemController menuItemController = fxmlLoader.getController();
-            menuItemController.setData(menuItem.getMenuItemName(), String.valueOf(menuItem.getMenuItemPrice()));
+            menuItemController.setData(String.valueOf(menuItem.getMenuItemPrice()), menuItem.getMenuItemName());
             tiledpane.getChildren().add(anchorPane);
         }
     }
@@ -73,7 +74,7 @@ public class HelloController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void onclicksearchbutton(ActionEvent actionEvent) throws IOException {
+    public void onclicksearchbutton(Event actionEvent) throws IOException {
         String source = searchtextfield.getText();
 
         tiledpane.getChildren().clear();
@@ -87,5 +88,24 @@ public class HelloController implements Initializable {
                 tiledpane.getChildren().add(anchorPane);
             }
         }
+    }
+
+    public void navigateToDashboard() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+        scene = new Scene(fxmlLoader.load(), 1200, 720);
+        stage = (Stage) addbutton.getScene().getWindow();
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void navigateToDiscount() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Discount.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 720);
+        Stage stage;
+        stage = (Stage) addbutton.getScene().getWindow();
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
     }
 }
