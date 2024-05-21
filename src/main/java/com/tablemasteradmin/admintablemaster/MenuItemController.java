@@ -28,7 +28,7 @@ public class MenuItemController {
     @FXML
     private Text menuItemTitle;
 
-    MenuItemModel selectedMenuItem;
+    MenuItemModel selectedMenuItem = new MenuItemModel();
     Scene scene;
     Stage stage;
 

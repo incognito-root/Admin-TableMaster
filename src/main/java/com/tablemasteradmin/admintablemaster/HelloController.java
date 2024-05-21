@@ -63,7 +63,7 @@ public class HelloController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             MenuItemController menuItemController = fxmlLoader.getController();
-            menuItemController.setData(menuItem.getMenuItemName(), String.valueOf(menuItem.getMenuItemPrice()));
+            menuItemController.setData(String.valueOf(menuItem.getMenuItemPrice()), menuItem.getMenuItemName());
             tiledpane.getChildren().add(anchorPane);
         }
     }
@@ -88,5 +88,14 @@ public class HelloController implements Initializable {
                 tiledpane.getChildren().add(anchorPane);
             }
         }
+    }
+
+    public void navigateToDashboard() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
+        scene = new Scene(fxmlLoader.load(), 1200, 720);
+        stage = (Stage) addbutton.getScene().getWindow();
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
     }
 }

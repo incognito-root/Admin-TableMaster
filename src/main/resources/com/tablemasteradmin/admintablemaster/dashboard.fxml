@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -19,9 +22,9 @@
       </Label>
       <HBox alignment="CENTER_LEFT" layoutX="42.0" layoutY="173.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
-            <AnchorPane minHeight="180.0" minWidth="270.0" prefHeight="375.0" prefWidth="270.0" styleClass="card-main" stylesheets="@styles.css">
+            <AnchorPane minHeight="180.0" minWidth="350.0" prefHeight="375.0" prefWidth="270.0" styleClass="card-main" stylesheets="@styles.css">
                <children>
-                  <TextField fx:id="orders" layoutX="31.333333333333336" layoutY="65.0" prefHeight="77.0" prefWidth="199.0" stylesheets="@styles.css" text="10 Orders" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="-10.0">
+                  <TextField fx:id="orders" editable="false" layoutX="31.333333333333336" layoutY="65.0" prefHeight="77.0" prefWidth="199.0" stylesheets="@styles.css" text="10 Orders" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="-10.0">
                      <styleClass>
                         <String fx:value="text-main" />
                         <String fx:value="h1" />
@@ -34,7 +37,7 @@
                         <String fx:value="text-secondary" />
                      </styleClass>
                   </Label>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="157.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="246.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@orders-logo.png" />
                      </image>
@@ -42,9 +45,9 @@
                   <Line endX="969.0" endY="-1.52587890625E-5" layoutX="169.0" layoutY="-30.0" opacity="0.42" startX="-229.04043579101562" startY="-1.52587890625E-5" stroke="#d6d6d6" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="180.0" minWidth="270.0" prefHeight="180.0" prefWidth="480.0" styleClass="card-main" stylesheets="@styles.css">
+            <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="180.0" minWidth="350.0" prefHeight="180.0" prefWidth="480.0" styleClass="card-main" stylesheets="@styles.css">
                <children>
-                  <TextField fx:id="revnue" layoutX="35.0" layoutY="51.0" prefHeight="77.0" prefWidth="199.0" stylesheets="@styles.css" text="Revnue " AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="-10.0">
+                  <TextField fx:id="revnue" editable="false" layoutX="-4.0" layoutY="57.0" prefHeight="77.0" prefWidth="253.0" stylesheets="@styles.css" text="Revnue " AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="-4.0">
                      <styleClass>
                         <String fx:value="text-main" />
                         <String fx:value="h1" />
@@ -57,16 +60,16 @@
                         <String fx:value="text-secondary" />
                      </styleClass>
                   </Label>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="167.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="45.0">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="252.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="43.0">
                      <image>
                         <Image url="@revnue-logo.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="180.0" minWidth="270.0" prefHeight="180.0" prefWidth="480.0" styleClass="card-main" stylesheets="@styles.css">
+            <AnchorPane minHeight="180.0" minWidth="350.0" prefHeight="180.0" prefWidth="480.0" styleClass="card-main" stylesheets="@styles.css">
                <children>
-                  <TextField fx:id="customerId" layoutX="7.0" layoutY="43.0" prefHeight="77.0" prefWidth="226.0" stylesheets="@styles.css" text="Customers" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="-10.0">
+                  <TextField fx:id="customersCount" editable="false" layoutX="7.0" layoutY="43.0" prefHeight="77.0" prefWidth="226.0" stylesheets="@styles.css" text="Customers" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="-10.0">
                      <styleClass>
                         <String fx:value="text-main" />
                         <String fx:value="h1" />
@@ -79,7 +82,7 @@
                         <String fx:value="text-secondary" />
                      </styleClass>
                   </Label>
-                  <ImageView fx:id="totalCustomer" fitHeight="118.0" fitWidth="115.0" layoutX="167.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="71.0">
+                  <ImageView fx:id="totalCustomer" fitHeight="118.0" fitWidth="115.0" layoutX="235.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="81.0">
                      <image>
                         <Image url="@customer-logo.png" />
                      </image>
@@ -88,5 +91,20 @@
             </AnchorPane>
          </children>
       </HBox>
+      <TableView fx:id="allOrders" layoutX="45.0" layoutY="370.0" prefHeight="335.0" prefWidth="1104.0">
+        <columns>
+          <TableColumn fx:id="tableOrderDate" editable="false" prefWidth="287.5338363647461" resizable="false" text="Date" />
+          <TableColumn fx:id="tableOrderPayment" editable="false" minWidth="0.0" prefWidth="332.48504638671875" resizable="false" text="Amount" />
+            <TableColumn fx:id="tableOrderNotes" editable="false" minWidth="0.0" prefWidth="423.03375244140625" resizable="false" text="Order Notes" />
+        </columns>
+      </TableView>
+      <Button layoutX="982.0" layoutY="53.0" mnemonicParsing="false" onAction="#navigateToHome" text="Back to Home">
+         <styleClass>
+            <String fx:value="secondary-no-fill-button" />
+            <String fx:value="transparent-background" />
+            <String fx:value="text-main" />
+            <String fx:value="text-medium" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>
