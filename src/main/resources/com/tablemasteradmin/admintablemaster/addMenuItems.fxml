@@ -44,5 +44,13 @@
       <Label fx:id="itemServingLabel" layoutX="679.0" layoutY="441.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Serving" AnchorPane.leftAnchor="679.0" />
       <Label fx:id="itemDescriptionLabel" layoutX="679.0" layoutY="323.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Description" AnchorPane.leftAnchor="679.0" />
       <Label fx:id="itemPriceLabel" layoutX="679.0" layoutY="212.0" styleClass="text-main" stylesheets="@../../../../../oop/Ordering-Tablemaster/src/main/resources/com/tablemasterordering/orderingtablemaster/styles.css" text="Item Price" AnchorPane.leftAnchor="679.0" />
+      <Button layoutX="968.0" layoutY="30.0" mnemonicParsing="false" onAction="#navigateToHome" text="Back to Home">
+         <styleClass>
+            <String fx:value="secondary-no-fill-button" />
+            <String fx:value="transparent-background" />
+            <String fx:value="text-main" />
+            <String fx:value="text-medium" />
+         </styleClass>
+      </Button>
    </children>
 </AnchorPane>

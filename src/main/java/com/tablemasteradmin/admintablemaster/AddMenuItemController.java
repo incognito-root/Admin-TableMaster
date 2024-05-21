@@ -2,15 +2,19 @@ package com.tablemasteradmin.admintablemaster;
 
 import com.tablemasteradmin.admintablemaster.model.InputValidations;
 import com.tablemasteradmin.admintablemaster.model.MenuItemModel;
+import com.tablemasteradmin.admintablemaster.model.UpdateMenuItem;
 import com.tablemasteradmin.admintablemaster.services.AdminService;
 import com.tablemasteradmin.admintablemaster.services.MenuService;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -80,6 +84,12 @@ public class AddMenuItemController implements Initializable {
     }
 
     public void onButtonAction(ActionEvent actionEvent) throws IOException {
+
+        if (!itemPriceTextField.getText().isEmpty()) {
+            updateMenuItem();
+            return;
+        }
+
         String itemDescription = itemDescriptionTextField.getText();
         String itemName = itemNameTextField.getText();
         double itemprice= Double.parseDouble(itemPriceTextField.getText());
@@ -92,18 +102,13 @@ public class AddMenuItemController implements Initializable {
     public void validate(Event e)
     {
         String source = ((TextField) e.getSource()).getId();
-        switch (source) {
-            case "itemDescriptionTextField" -> handleFieldErrors(itemDescriptionLabel, itemDescriptionLabelBackup, itemDescriptionTextField);
 
+        switch (source) {
             case "itemNameTextField" -> handleFieldErrors(itemNameLabel, itemNameLabelBackup, itemNameTextField);
 
             case "itemPriceTextField" -> {
                 InputValidations.clearErrors(itemPriceLabel, itemPriceLabelBackup);
-                if (!InputValidations.isDigits(itemPriceLabel.getText())) {
-                    InputValidations.setErrors(itemPriceLabel);
-                    disableButton();
-                    return;
-                }
+                
                 if (!InputValidations.isDouble(itemPriceTextField.getText())) {
                     InputValidations.setErrors(itemPriceLabel);
                     disableButton();
@@ -111,7 +116,6 @@ public class AddMenuItemController implements Initializable {
                 }
 
                 enableButton();
-
                 InputValidations.clearErrors(itemPriceLabel, itemPriceLabelBackup);
             }
 
@@ -146,15 +150,29 @@ public class AddMenuItemController implements Initializable {
         itemDescriptionTextField.setText(menuItemModel.getMenuItemDescription());
         itemPriceTextField.setText(String.valueOf(menuItemModel.getMenuItemPrice()));
         itemServingTextField.setText(String.valueOf(menuItemModel.getMenuItemServing()));
-        itemNameTextField.setVisible(false);
+        itemServingTextField.setVisible(false);
+        itemServingLabel.setVisible(false);
+        itemNameTextField.setDisable(true);
         addItemLabel.setText("Update");
     }
 
+    private void updateMenuItem() throws IOException {
+        UpdateMenuItem menuItemModel = new UpdateMenuItem(itemNameTextField.getText(), Double.parseDouble(itemPriceTextField.getText()), itemDescriptionTextField.getText());
 
+        MenuService menuService=new MenuService();
+        menuService.updateMenuItem(menuItemModel);
 
+        navigateToHome();
+    }
 
-
-
-
+    public void navigateToHome() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Afterlogin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 1200, 720);
+        Stage stage;
+        stage = (Stage) itemNameLabel.getScene().getWindow();
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

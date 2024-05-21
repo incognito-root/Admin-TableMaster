@@ -32,11 +32,12 @@ public class MenuItemController {
     Scene scene;
     Stage stage;
 
-    public void setData(String menuItemPrice, String menuItemTitle)  {
+    public void setData(String menuItemPrice, String menuItemTitle, String menuItemDesc)  {
         this.menuItemPrice.setText(menuItemPrice);
         this.menuItemTitle.setText(menuItemTitle);
         selectedMenuItem.setMenuItemName(menuItemTitle);
         selectedMenuItem.setMenuItemPrice(Double.parseDouble(menuItemPrice));
+        selectedMenuItem.setMenuItemDescription(menuItemDesc);
     }
 
     public ImageView getMenuItemImage() {
@@ -65,14 +66,14 @@ public class MenuItemController {
 
     public void onclickeditbutton(Event e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addMenuItems.fxml"));
-        AddMenuItemController menuItemController=fxmlLoader.getController();
+        AnchorPane pane = fxmlLoader.load();
+        AddMenuItemController menuItemController = fxmlLoader.getController();
         menuItemController.setmenuitems(selectedMenuItem);
-        scene = new Scene(fxmlLoader.load(), 1200, 720);
+        scene = new Scene(pane, 1200, 720);
         stage = (Stage) editbutton.getScene().getWindow();
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
 }
