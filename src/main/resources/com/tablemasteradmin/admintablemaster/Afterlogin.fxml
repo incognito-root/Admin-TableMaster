@@ -37,12 +37,12 @@
                                 <Font name="System Bold" size="12.0" />
                             </font>
                         </TextField>
-                        <ScrollPane hbarPolicy="NEVER" vbarPolicy="ALWAYS" fitToWidth="false" fitToHeight="false" layoutX="-2.0" layoutY="115.0" prefHeight="591.0" prefWidth="1203.0" styleClass="anchor-pane">
+                        <ScrollPane fitToHeight="false" fitToWidth="false" hbarPolicy="NEVER" layoutX="-2.0" layoutY="115.0" prefHeight="591.0" prefWidth="1203.0" styleClass="anchor-pane" vbarPolicy="ALWAYS">
                             <content>
                                 <TilePane fx:id="tiledpane" hgap="20.0" prefWidth="1188.0" style="-fx-background-color: #252836;" styleClass="anchor-pane" vgap="20.0">
-                                    <!-- Add enough content here to exceed the viewport size -->
-                                    <!-- Example: Repeat some elements multiple times -->
-                                </TilePane>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding></TilePane>
                             </content>
                         </ScrollPane>
                         <Line endX="1001.0" endY="38.0" layoutX="199.0" layoutY="70.0" startX="-201.0" startY="38.0" stroke="#fcfcfc" />
