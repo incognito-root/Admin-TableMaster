@@ -35,9 +35,9 @@ public class MenuItemController {
     public void setData(String menuItemPrice, String menuItemTitle, String menuItemDesc)  {
         this.menuItemPrice.setText(menuItemPrice);
         this.menuItemTitle.setText(menuItemTitle);
-        selectedMenuItem.setMenuItemName(menuItemTitle);
-        selectedMenuItem.setMenuItemPrice(Double.parseDouble(menuItemPrice));
-        selectedMenuItem.setMenuItemDescription(menuItemDesc);
+       selectedMenuItem.setMenuItemName(menuItemTitle);
+       selectedMenuItem.setMenuItemPrice(Double.parseDouble(menuItemPrice));
+       selectedMenuItem.setMenuItemDescription(menuItemDesc);
     }
 
     public ImageView getMenuItemImage() {
