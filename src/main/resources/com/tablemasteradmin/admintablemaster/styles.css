@@ -37,3 +37,32 @@
     -fx-text-fill: #D6D6D6;
     -fx-font-family: 'Poppins', sans-serif;
 }
+
+#dialogue-box {
+    -fx-background-color: #1F1D2B;
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-alignment: center;
+    -fx-border-color: #444858;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 5);
+}
+
+.dialogue-button {
+    -fx-background-color: pink;
+    -fx-text-fill: white;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+}
+#dialogue-box .label {
+    -fx-text-fill: white;
+}
+
+.dialogue-button:hover {
+    -fx-background-color: #FA868666;
+    -fx-text-fill:#EA6969;
+}
