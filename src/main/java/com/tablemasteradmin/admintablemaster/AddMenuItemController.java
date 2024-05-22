@@ -84,12 +84,10 @@ public class AddMenuItemController implements Initializable {
     }
 
     public void onButtonAction(ActionEvent actionEvent) throws IOException {
-
-        if (!itemPriceTextField.getText().isEmpty()) {
+        if (itemNameTextField.isDisable()) {
             updateMenuItem();
             return;
         }
-
         String itemDescription = itemDescriptionTextField.getText();
         String itemName = itemNameTextField.getText();
         double itemprice= Double.parseDouble(itemPriceTextField.getText());
@@ -97,6 +95,7 @@ public class AddMenuItemController implements Initializable {
         MenuItemModel menuItemModel=new MenuItemModel(itemName,itemprice,servings,itemDescription);
         MenuService menuService=new MenuService();
         menuService.savemenuitem(menuItemModel);
+
     }
 
     public void validate(Event e)
