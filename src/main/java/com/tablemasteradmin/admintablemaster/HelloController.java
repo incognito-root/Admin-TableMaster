@@ -80,7 +80,7 @@ public class HelloController implements Initializable {
         tiledpane.getChildren().clear();
 
         for(MenuItemModel menuItem : menuItems) {
-            if(menuItem.getMenuItemName().contains(source)) {
+          if (menuItem.getMenuItemName().toLowerCase().contains(source.toLowerCase())) {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-item-card.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 MenuItemController menuItemController = fxmlLoader.getController();
