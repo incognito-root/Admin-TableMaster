@@ -149,7 +149,15 @@ public class InputValidations {
 
     public static boolean isEmpty(String stringToCheck) {
         return stringToCheck == null || stringToCheck.trim().isEmpty();
+
     }
+
+        public static boolean isNotEmpty(String stringToCheck) {
+            errorMessage = ": cannot be empty";
+            return stringToCheck != null && !stringToCheck.trim().isEmpty();
+        }
+
+
 
 
 }

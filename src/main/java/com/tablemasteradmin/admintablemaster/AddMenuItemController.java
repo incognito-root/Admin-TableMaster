@@ -122,7 +122,7 @@ public class AddMenuItemController implements Initializable {
 
             case "itemServingTextField" -> {
                 InputValidations.clearErrors(itemServingLabel, itemServingLabelBackup);
-                if (!InputValidations.isDigits(itemServingLabel.getText())) {
+                if( !InputValidations.isNotEmpty(itemServingTextField.getText())){
                     InputValidations.setErrors(itemServingLabel);
                     disableButton();
                     return;
@@ -132,6 +132,7 @@ public class AddMenuItemController implements Initializable {
                     disableButton();
                     return;
                 }
+
 
                 enableButton();
 
