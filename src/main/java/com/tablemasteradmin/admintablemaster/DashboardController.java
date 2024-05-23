@@ -51,8 +51,8 @@ public class DashboardController implements Initializable {
         AdminDashboardData adminDashboardData = null;
         try {
             adminDashboardData = new AdminService().getAdminDashboardData();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException | NullPointerException e) {
+            return;
         }
 
         if (adminDashboardData.getRevenue() > 0) {

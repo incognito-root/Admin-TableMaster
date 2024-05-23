@@ -1,13 +1,18 @@
 package com.tablemasteradmin.admintablemaster.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.tablemasteradmin.admintablemaster.HelperFunction.Popup;
+import com.tablemasteradmin.admintablemaster.HelperFunction.PopupTypeEnum;
 import com.tablemasteradmin.admintablemaster.model.Admin;
 import com.tablemasteradmin.admintablemaster.model.AdminDashboardData;
+import com.tablemasteradmin.admintablemaster.model.ApiResponse;
 import com.tablemasteradmin.admintablemaster.model.Discount;
 
 import java.io.IOException;
+import java.net.http.HttpResponse;
 
 public class AdminService extends MainService {
     public boolean adminLogin(Admin admin) throws IOException {
@@ -15,26 +20,50 @@ public class AdminService extends MainService {
         ObjectMapper mapper = new ObjectMapper();
         String reqBody = mapper.writeValueAsString(admin);
 
-        int result = postRequest("admin/loginAdmin", reqBody).statusCode();
+        TypeReference<ApiResponse<Boolean>> typeRef = new TypeReference<>() {};
+        HttpResponse<String> result = postRequest("admin/loginAdmin", reqBody);
 
-        return result == 200; // OK
+        ApiResponse<Boolean> apiResponse = mapper.readValue(result.body(), typeRef);
+
+        if (apiResponse.isSuccess()) {
+            Popup.showPopup(PopupTypeEnum.INFO, apiResponse.getMessage(), "Logged In Successfully");
+            return true;
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Login Failed");
+            return false;
+        }
     }
 
     public AdminDashboardData getAdminDashboardData() throws IOException {
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
-        String res = getRequest("admin/getAdminDashboardData").body();
+        TypeReference<ApiResponse<AdminDashboardData>> typeRef = new TypeReference<>() {};
+        HttpResponse<String> res = getRequest("admin/getAdminDashboardData");
+        ApiResponse<AdminDashboardData> apiResponse = mapper.readValue(res.body(), typeRef);
 
-        return mapper.readValue(res, AdminDashboardData.class);
+        if (apiResponse.isSuccess()) {
+            return apiResponse.getData();
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Error in Retrieving Data");
+            return null;
+        }
     }
 
     public boolean updateDiscount(Discount discount) throws IOException {
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
-
         String reqBody = mapper.writeValueAsString(discount);
 
-        int  res = postRequest("discount/createDiscount", reqBody).statusCode();
+        TypeReference<ApiResponse<Boolean>> typeRef = new TypeReference<>() {};
+        HttpResponse<String> res = postRequest("discount/createDiscount", reqBody);
 
-        return res  == 201;
+        ApiResponse<Boolean> apiResponse = mapper.readValue(res.body(), typeRef);
+
+        if (apiResponse.isSuccess()) {
+            Popup.showPopup(PopupTypeEnum.INFO, apiResponse.getMessage(), "Discount Updated Successfully");
+            return true;
+        } else {
+            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Discount Update Failed");
+            return false;
+        }
     }
 }
