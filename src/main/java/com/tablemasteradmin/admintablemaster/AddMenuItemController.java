@@ -94,8 +94,11 @@ public class AddMenuItemController implements Initializable {
         int servings = Integer.parseInt(itemServingTextField.getText());
         MenuItemModel menuItemModel=new MenuItemModel(itemName,itemprice,servings,itemDescription);
         MenuService menuService=new MenuService();
-        menuService.savemenuitem(menuItemModel);
+        boolean itemAdded = menuService.savemenuitem(menuItemModel);
 
+        if (itemAdded) {
+            navigateToHome();
+        }
     }
 
     public void validate(Event e)

@@ -54,7 +54,7 @@ public class MenuService extends MainService {
 
         if (apiResponse.isSuccess()) {
             Popup.showPopup(PopupTypeEnum.INFO, apiResponse.getMessage(), "Menu Items Saved");
-            return false;
+            return true;
         } else {
             Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Menu Items Error");
             return false;

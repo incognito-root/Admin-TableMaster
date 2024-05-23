@@ -98,7 +98,7 @@
             <TableColumn fx:id="tableOrderNotes" editable="false" minWidth="0.0" prefWidth="423.03375244140625" resizable="false" text="Order Notes" />
         </columns>
       </TableView>
-      <Button layoutX="982.0" layoutY="53.0" mnemonicParsing="false" onAction="#navigateToHome" text="Back to Home">
+      <Button layoutX="999.0" layoutY="53.0" mnemonicParsing="false" onAction="#navigateToHome" text="Back to Home">
          <styleClass>
             <String fx:value="secondary-no-fill-button" />
             <String fx:value="transparent-background" />

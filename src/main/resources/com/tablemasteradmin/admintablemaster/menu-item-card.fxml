@@ -7,30 +7,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="230.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasteradmin.admintablemaster.MenuItemController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="250.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tablemasteradmin.admintablemaster.MenuItemController">
     <styleClass>
         <String fx:value="card-main" />
         <String fx:value="transparent-background" />
     </styleClass>
     <children>
-        <ImageView fx:id="menuItemImage" fitHeight="150.0" fitWidth="230.0" pickOnBounds="true" />
-        <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Special Burger" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="140.0">
+        <Text fx:id="menuItemTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Our Special Burger" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <styleClass>
                 <String fx:value="text-main" />
                 <String fx:value="text-body" />
             </styleClass>
         </Text>
-        <Text fx:id="menuItemPrice" strokeType="OUTSIDE" strokeWidth="0.0" text="250" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+        <Text fx:id="menuItemPrice" layoutX="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="250" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
             <styleClass>
-                <String fx:value="body-smaller" />
+                <String fx:value="text-body" />
                 <String fx:value="text-main" />
             </styleClass>
         </Text>
-      <ImageView fitHeight="52.0" fitWidth="56.0" layoutX="160.0" layoutY="188.0">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="160.0" layoutY="188.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <image>
-            <Image url="@edit.png" />
+            <Image url="@icons8-edit-64.png" />
          </image>
       </ImageView>
-      <Button fx:id="editbutton" layoutX="160.0" layoutY="193.0" mnemonicParsing="false" onAction="#onclickeditbutton" prefHeight="44.0" prefWidth="56.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="editbutton" layoutX="167.0" layoutY="58.0" mnemonicParsing="false" onAction="#onclickeditbutton" prefHeight="44.0" prefWidth="56.0" style="-fx-background-color: transparent;" AnchorPane.topAnchor="58.0" />
     </children>
 </AnchorPane>
