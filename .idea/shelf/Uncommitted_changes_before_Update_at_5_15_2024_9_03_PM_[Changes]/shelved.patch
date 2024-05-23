@@ -1,0 +1,261 @@
+Index: src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tablemasteradmin.admintablemaster;\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.control.TitledPane;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.layout.StackPane;\r\nimport javafx.scene.layout.TilePane;\r\n\r\nimport java.io.FileNotFoundException;\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\n\r\npublic class HelloController {\r\n\r\n    @FXML\r\n    TilePane tiledpane;\r\n\r\n    @FXML\r\n   AnchorPane mainHomeArea;\r\n\r\n    @FXML\r\n   StackPane mainStackPane;\r\n\r\n    ArrayList<MenuItemModel> menuItems = new ArrayList<>();\r\n\r\n    MenuItemModel menuItem1 = new MenuItemModel(\"Pizza\", 300);\r\n    MenuItemModel menuItem2 = new MenuItemModel(\"Burger\", 200);\r\n\r\n    public void initialize() {\r\n        menuItems.add(menuItem1);\r\n        menuItems.add(menuItem2);\r\n        try {\r\n            getdata();\r\n        }catch (IOException e){\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public void getdata() throws IOException {\r\n        for(MenuItemModel menuItem : menuItems) {\r\n            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(\"menu-item-card.fxml\"));\r\n            AnchorPane anchorPane = fxmlLoader.load();\r\n            MenuItemController menuItemController = fxmlLoader.getController();\r\n            menuItemController.setData(menuItem.getMenuItemName(),String.valueOf(menuItem.getMenuItemPrice()));\r\n           tiledpane.getChildren().add(anchorPane);\r\n\r\n\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java b/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java
+--- a/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java	
++++ b/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java	
+@@ -1,17 +1,19 @@
+ package com.tablemasteradmin.admintablemaster;
+ 
++import com.tablemasteradmin.admintablemaster.Api_Service.MenuService;
+ import javafx.fxml.FXML;
+ import javafx.fxml.FXMLLoader;
+-import javafx.scene.control.TitledPane;
++import javafx.fxml.Initializable;
+ import javafx.scene.layout.AnchorPane;
+ import javafx.scene.layout.StackPane;
+ import javafx.scene.layout.TilePane;
+ 
+-import java.io.FileNotFoundException;
+ import java.io.IOException;
++import java.net.URL;
+ import java.util.ArrayList;
++import java.util.ResourceBundle;
+ 
+-public class HelloController {
++public class HelloController implements Initializable {
+ 
+     @FXML
+     TilePane tiledpane;
+@@ -24,18 +26,19 @@
+ 
+     ArrayList<MenuItemModel> menuItems = new ArrayList<>();
+ 
+-    MenuItemModel menuItem1 = new MenuItemModel("Pizza", 300);
+-    MenuItemModel menuItem2 = new MenuItemModel("Burger", 200);
+-
+-    public void initialize() {
+-        menuItems.add(menuItem1);
+-        menuItems.add(menuItem2);
++    @Override
++    public void initialize(URL url, ResourceBundle resourceBundle) {
+         try {
+-            getdata();
+-        }catch (IOException e){
+-            e.printStackTrace();
++            MenuService menuService = new MenuService();
++            menuService.setAllMenuItems();
++            menuItems  = menuService.getAllMenuItems();
++
++            this.getdata();
++        } catch (IOException e) {
++            throw new RuntimeException(e);
+         }
+     }
++
+ 
+     public void getdata() throws IOException {
+         for(MenuItemModel menuItem : menuItems) {
+@@ -43,7 +46,7 @@
+             AnchorPane anchorPane = fxmlLoader.load();
+             MenuItemController menuItemController = fxmlLoader.getController();
+             menuItemController.setData(menuItem.getMenuItemName(),String.valueOf(menuItem.getMenuItemPrice()));
+-           tiledpane.getChildren().add(anchorPane);
++            tiledpane.getChildren().add(anchorPane);
+ 
+ 
+         }
+Index: src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MenuService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MenuService.java b/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MenuService.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MenuService.java	
+@@ -0,0 +1,30 @@
++package com.tablemasteradmin.admintablemaster.Api_Service;
++
++import com.fasterxml.jackson.core.type.TypeReference;
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
++import com.tablemasteradmin.admintablemaster.MenuItemModel;
++
++import java.io.IOException;
++import java.util.ArrayList;
++public class MenuService extends MainService
++{
++    private ArrayList<MenuItemModel> allMenuItems = new ArrayList<>();
++    private void readAllMenuItems() throws IOException {
++        String result = getRequest("menu/getAllMenuItems").body();
++
++        ObjectMapper mapper = new ObjectMapper()
++                .registerModule(new JavaTimeModule());
++
++        this.allMenuItems = mapper.readValue(result, new TypeReference<ArrayList<MenuItemModel>>() {
++        });
++    }
++
++    public void setAllMenuItems() throws IOException {
++        readAllMenuItems();
++    }
++
++    public ArrayList<MenuItemModel> getAllMenuItems() {
++        return allMenuItems;
++    }
++}
+Index: src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MainService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MainService.java b/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MainService.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MainService.java	
+@@ -0,0 +1,28 @@
++package com.tablemasteradmin.admintablemaster.Api_Service;
++
++import java.io.IOException;
++import java.net.URI;
++import java.net.http.HttpClient;
++import java.net.http.HttpRequest;
++import java.net.http.HttpResponse;
++public class MainService {
++    protected final String mainUrl = "http://localhost:8080/";
++
++    protected HttpResponse<String> getRequest(String url) throws IOException {
++        HttpRequest request = HttpRequest.newBuilder()
++                .uri(URI.create(mainUrl + url))
++                .method("GET", HttpRequest.BodyPublishers.noBody())
++                .build();
++
++        HttpResponse<String> response = null;
++
++        try{
++            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
++        } catch (IOException | InterruptedException e) {
++            e.printStackTrace();
++        }
++
++        System.out.println(response);
++        return response;
++    }
++}
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module com.tablemasteradmin.admintablemaster {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n\r\n    opens com.tablemasteradmin.admintablemaster to javafx.fxml;\r\n    exports com.tablemasteradmin.admintablemaster;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	
++++ b/src/main/java/module-info.java	
+@@ -1,6 +1,9 @@
+ module com.tablemasteradmin.admintablemaster {
+     requires javafx.controls;
+     requires javafx.fxml;
++    requires java.net.http;
++    requires com.fasterxml.jackson.datatype.jsr310;
++    requires com.fasterxml.jackson.databind;
+ 
+ 
+     opens com.tablemasteradmin.admintablemaster to javafx.fxml;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"875697b6-e3d6-497f-a489-e5ef937c237d\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/MenuItemController.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/MenuItemModel.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/AfterLogin.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/menu-item-card.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloApplication.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloApplication.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/hello-view.fxml\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2e3KspnU0LvqBOagZV0me4DoYvz\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.HelloApplication.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"MainPage\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"list.type.of.created.stylesheet\": \"CSS\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"875697b6-e3d6-497f-a489-e5ef937c237d\" name=\"Changes\" comment=\"\" />\r\n      <created>1711128032922</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1711128032922</updated>\r\n      <workItem from=\"1711128034544\" duration=\"4000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,16 +5,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="875697b6-e3d6-497f-a489-e5ef937c237d" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/MenuItemController.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/MenuItemModel.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/AfterLogin.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/menu-item-card.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MainService.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/Api_Service/MenuService.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloApplication.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/HelloController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/hello-view.fxml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -30,6 +26,21 @@
+       </list>
+     </option>
+   </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "laibakhan11"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/incognito-root/Admin-TableMaster.git",
++    "accountId": "0fd4cfb6-aad1-4b1e-bedc-b78e14be55d3"
++  }
++}]]></component>
+   <component name="MavenImportPreferences">
+     <option name="generalSettings">
+       <MavenGeneralSettings>
+@@ -37,6 +48,9 @@
+       </MavenGeneralSettings>
+     </option>
+   </component>
++  <component name="ProjectColorInfo"><![CDATA[{
++  "associatedIndex": 4
++}]]></component>
+   <component name="ProjectId" id="2e3KspnU0LvqBOagZV0me4DoYvz" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+     <ConfirmationsSetting value="2" id="Add" />
+@@ -53,15 +67,19 @@
+     "git-widget-placeholder": "MainPage",
+     "kotlin-language-version-configured": "true",
+     "list.type.of.created.stylesheet": "CSS",
++    "node.js.detected.package.eslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
++    "settings.editor.selected.configurable": "com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
++        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
++        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -74,6 +92,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1711128032922</updated>
+       <workItem from="1711128034544" duration="4000" />
++      <workItem from="1715787389975" duration="1610000" />
+     </task>
+     <servers />
+   </component>
