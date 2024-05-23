@@ -69,7 +69,7 @@ public class AddMenuItemController implements Initializable {
 
     private void enableButton() {
         if (!checkEmptyFields() &&
-                InputValidations.validateAlpha(itemNameTextField.getText()) && InputValidations.validateLength(itemNameTextField.getText(), 3, 30) &&
+                InputValidations.validateLength(itemNameTextField.getText(), 3, 30) &&
                 InputValidations.isDouble(itemPriceTextField.getText()) &&
                 InputValidations.isDigits(itemServingTextField.getText())) {
             addItemLabel.setDisable(false);
@@ -81,11 +81,6 @@ public class AddMenuItemController implements Initializable {
     private void handleFieldErrors(Label nameLabel, String firstNameLabelBackup, TextField firstNameField) {
         InputValidations.clearErrors(nameLabel, firstNameLabelBackup);
 
-        if (!InputValidations.validateAlpha(firstNameField.getText())) {
-            InputValidations.setErrors(nameLabel);
-            disableButton();
-            return;
-        }
         if (!InputValidations.validateLength(firstNameField.getText(), 3, 30)) {
             InputValidations.setErrors(nameLabel);
             disableButton();
