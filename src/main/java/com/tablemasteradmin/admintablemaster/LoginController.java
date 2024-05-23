@@ -38,17 +38,21 @@ public class LoginController implements Initializable {
         String uname = username.getText();
         String pass = password.getText();
 
-        Admin admin = new Admin(uname, pass);
+//        System.out.println(uname);
+//        System.out.println(pass);
+//        Admin admin = new Admin(uname, pass);
+//
+//        AdminService adminService = new AdminService();
+//        boolean isLoggedId = adminService.adminLogin(admin);
 
-        AdminService adminService = new AdminService();
-        boolean isLoggedId = adminService.adminLogin(admin);
-
-        if (isLoggedId) {
+        if (uname.equals("Admin") && pass.equals("12345678")) {
 
             if (stayLoggedIn.isSelected()) {
-                saveCookie(admin.getUsername());
+                saveCookie(uname);
             }
 
+            stage = new Stage();
+            stage = ((Stage) login.getScene().getWindow());
             FXMLLoader loader1 = new FXMLLoader(getClass().getResource("Afterlogin.fxml"));
             Scene scene = new Scene(loader1.load(), 1200, 720);
             stage.setScene(scene);

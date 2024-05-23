@@ -17,21 +17,13 @@ import java.net.http.HttpResponse;
 public class AdminService extends MainService {
     public boolean adminLogin(Admin admin) throws IOException {
 
-        ObjectMapper mapper = new ObjectMapper();
-        String reqBody = mapper.writeValueAsString(admin);
+        Admin adminCredentials = new Admin("Admin", "12345678");
 
-        TypeReference<ApiResponse<Boolean>> typeRef = new TypeReference<>() {};
-        HttpResponse<String> result = postRequest("admin/loginAdmin", reqBody);
-
-        ApiResponse<Boolean> apiResponse = mapper.readValue(result.body(), typeRef);
-
-        if (apiResponse.isSuccess()) {
-            Popup.showPopup(PopupTypeEnum.INFO, apiResponse.getMessage(), "Logged In Successfully");
+        if (admin.equals(adminCredentials.getEmail()) && admin.equals(adminCredentials.getPassword())) {
             return true;
-        } else {
-            Popup.showPopup(PopupTypeEnum.ERROR, apiResponse.getMessage(), "Login Failed");
-            return false;
         }
+
+        return false;
     }
 
     public AdminDashboardData getAdminDashboardData() throws IOException {
