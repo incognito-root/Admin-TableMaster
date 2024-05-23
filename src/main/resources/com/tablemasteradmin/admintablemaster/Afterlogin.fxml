@@ -39,7 +39,7 @@
                             </content>
                         </ScrollPane>
                         <Line endX="1001.0" endY="38.0" layoutX="199.0" layoutY="70.0" startX="-201.0" startY="38.0" stroke="#fcfcfc" />
-                        <Button fx:id="addbutton" layoutX="377.0" layoutY="26.0" mnemonicParsing="false" onAction="#onclickaddbutton" prefHeight="59.0" prefWidth="52.0" style="-fx-background-color: transparent;" />
+                        <Button fx:id="addbutton" layoutX="377.0" layoutY="26.0" mnemonicParsing="false" onAction="#onclickaddbutton" prefHeight="59.0" prefWidth="52.0" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="18.0" />
                         <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="857.0" layoutY="32.0" AnchorPane.leftAnchor="400.0">
                             <image>
                                 <Image url="@search.png" />

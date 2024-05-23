@@ -7,11 +7,7 @@
     <list default="true" id="875697b6-e3d6-497f-a489-e5ef937c237d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/AddMenuItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/AddMenuItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tablemasteradmin/admintablemaster/services/MenuService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/Afterlogin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/menu-item-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/menu-item-card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/tablemasteradmin/admintablemaster/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +172,7 @@
       <workItem from="1716394679021" duration="249000" />
       <workItem from="1716394999624" duration="397000" />
       <workItem from="1716430684235" duration="1450000" />
-      <workItem from="1716438335182" duration="1326000" />
+      <workItem from="1716438335182" duration="2919000" />
     </task>
     <servers />
   </component>

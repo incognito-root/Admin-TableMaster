@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class AddMenuItemController implements Initializable {
     @FXML
-     Button addItemLabel;
+    Button addItemLabel;
 
     @FXML
     Label itemDescriptionLabel;
@@ -34,26 +34,27 @@ public class AddMenuItemController implements Initializable {
     Label itemNameLabel;
     String itemNameLabelBackup;
     @FXML
-     TextField itemNameTextField;
+    TextField itemNameTextField;
 
     @FXML
-     Label itemPriceLabel;
-     String itemPriceLabelBackup;
+    Label itemPriceLabel;
+    String itemPriceLabelBackup;
     @FXML
     TextField itemPriceTextField;
 
     @FXML
-     Label itemServingLabel;
-     String itemServingLabelBackup;
+    Label itemServingLabel;
+    String itemServingLabelBackup;
     @FXML
-     TextField itemServingTextField;
+    TextField itemServingTextField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        itemDescriptionLabelBackup= "Item Description";
-        itemNameLabelBackup="Item Name";
-        itemPriceLabelBackup="Item Price";
-        itemServingLabelBackup="Item Serving";
+        itemDescriptionLabelBackup = "Item Description";
+        itemNameLabelBackup = "Item Name";
+        itemPriceLabelBackup = "Item Price";
+        itemServingLabelBackup = "Item Serving";
+        disableButton();
     }
 
 
@@ -61,10 +62,22 @@ public class AddMenuItemController implements Initializable {
         addItemLabel.setDisable(true);
     }
 
-    private void enableButton() {
-        addItemLabel.setDisable(false);
+//    private void enableButton() {
+//        addItemLabel.setDisable(false);
+//
+//    }
 
+    private void enableButton() {
+        if (!checkEmptyFields() &&
+                InputValidations.validateAlpha(itemNameTextField.getText()) && InputValidations.validateLength(itemNameTextField.getText(), 3, 30) &&
+                InputValidations.isDouble(itemPriceTextField.getText()) &&
+                InputValidations.isDigits(itemServingTextField.getText())) {
+            addItemLabel.setDisable(false);
+        } else {
+            addItemLabel.setDisable(true);
+        }
     }
+
     private void handleFieldErrors(Label nameLabel, String firstNameLabelBackup, TextField firstNameField) {
         InputValidations.clearErrors(nameLabel, firstNameLabelBackup);
 
@@ -86,14 +99,15 @@ public class AddMenuItemController implements Initializable {
     public void onButtonAction(ActionEvent actionEvent) throws IOException {
         if (itemNameTextField.isDisable()) {
             updateMenuItem();
+            enableButton();
             return;
         }
         String itemDescription = itemDescriptionTextField.getText();
         String itemName = itemNameTextField.getText();
-        double itemprice= Double.parseDouble(itemPriceTextField.getText());
+        double itemprice = Double.parseDouble(itemPriceTextField.getText());
         int servings = Integer.parseInt(itemServingTextField.getText());
-        MenuItemModel menuItemModel=new MenuItemModel(itemName,itemprice,servings,itemDescription);
-        MenuService menuService=new MenuService();
+        MenuItemModel menuItemModel = new MenuItemModel(itemName, itemprice, servings, itemDescription);
+        MenuService menuService = new MenuService();
         boolean itemAdded = menuService.savemenuitem(menuItemModel);
 
         if (itemAdded) {
@@ -101,8 +115,7 @@ public class AddMenuItemController implements Initializable {
         }
     }
 
-    public void validate(Event e)
-    {
+    public void validate(Event e) {
         String source = ((TextField) e.getSource()).getId();
 
         switch (source) {
@@ -110,7 +123,7 @@ public class AddMenuItemController implements Initializable {
 
             case "itemPriceTextField" -> {
                 InputValidations.clearErrors(itemPriceLabel, itemPriceLabelBackup);
-                
+
                 if (!InputValidations.isDouble(itemPriceTextField.getText())) {
                     InputValidations.setErrors(itemPriceLabel);
                     disableButton();
@@ -124,12 +137,12 @@ public class AddMenuItemController implements Initializable {
 
             case "itemServingTextField" -> {
                 InputValidations.clearErrors(itemServingLabel, itemServingLabelBackup);
-                if( !InputValidations.isNotEmpty(itemServingTextField.getText())){
+                if (!InputValidations.isNotEmpty(itemServingTextField.getText())) {
                     InputValidations.setErrors(itemServingLabel);
                     disableButton();
                     return;
                 }
-                if(!InputValidations.isInteger(itemServingTextField.getText())){
+                if (!InputValidations.isInteger(itemServingTextField.getText())) {
                     InputValidations.setErrors(itemServingLabel);
                     disableButton();
                     return;
@@ -144,11 +157,9 @@ public class AddMenuItemController implements Initializable {
         }
 
 
-
-
     }
 
-    public void setmenuitems(MenuItemModel menuItemModel){
+    public void setmenuitems(MenuItemModel menuItemModel) {
         itemNameTextField.setText(menuItemModel.getMenuItemName());
         itemDescriptionTextField.setText(menuItemModel.getMenuItemDescription());
         itemPriceTextField.setText(String.valueOf(menuItemModel.getMenuItemPrice()));
@@ -157,12 +168,20 @@ public class AddMenuItemController implements Initializable {
         itemServingLabel.setVisible(false);
         itemNameTextField.setDisable(true);
         addItemLabel.setText("Update");
+        enableButton();
+    }
+
+    public boolean checkEmptyFields() {
+        return this.itemNameTextField.getText().isEmpty() ||
+                this.itemDescriptionTextField.getText().isEmpty() ||
+                this.itemPriceTextField.getText().isEmpty() ||
+                this.itemServingTextField.getText().isEmpty();
     }
 
     private void updateMenuItem() throws IOException {
         UpdateMenuItem menuItemModel = new UpdateMenuItem(itemNameTextField.getText(), Double.parseDouble(itemPriceTextField.getText()), itemDescriptionTextField.getText());
 
-        MenuService menuService=new MenuService();
+        MenuService menuService = new MenuService();
         menuService.updateMenuItem(menuItemModel);
 
         navigateToHome();
