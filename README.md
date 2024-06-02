@@ -23,7 +23,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 
 
@@ -191,7 +191,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 ## Contact
-**Laiba Khan** -  <br>
+**Laiba Khan** - hellolaiba3@gmail.com <br>
 Github: <a href="https://github.com/laibakhan11">laibakhan11</a>
 <br><br>
 **Minal Kashif** - minal.akashif1@gmail.com <br>
