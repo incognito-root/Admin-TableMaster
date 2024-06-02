@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/incognito-root/Ordering-Tablemaster">
-    <img src="src/main/resources/com/tablemasterordering/images/Logo_Icon.png" alt="Logo" width="80" height="80">
+    <img src="src/main/resources/com/tablemasteradmin/admintablemaster/Logo_Icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Table Master Restaurant Management System</h3>
@@ -83,20 +83,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="src/main/resources/com/tablemasteradmin/admintablemaster/Screenshot 2024-06-02 at 3.15.26 PM.png">
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+<h2>The Admin Panel of Table Master Restaurant Mangement App</h2>
+* Serves basic admin side needs of a restaurant
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 
 
@@ -113,7 +105,7 @@ The languages and libraries used to build:
 
 
 
-<!-- GETTING STARTED -->
+<!-- GETTING STARTED 
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
@@ -147,9 +139,6 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- USAGE EXAMPLES -->
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
@@ -158,26 +147,22 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+-->
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [ ] Revamping the Design
+- [ ] Improving discounts flow
+- [ ] Improving update menu item
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+<!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 
 
-<!-- CONTRIBUTING -->
+<!-- CONTRIBUTING
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -191,7 +176,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 
 
@@ -206,12 +191,19 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
+**Laiba Khan** -  <br>
+Github: <a href="https://github.com/laibakhan11">laibakhan11</a>
+<br><br>
+**Minal Kashif** - minal.akashif1@gmail.com <br>
+Github: <a href="https://github.com/minalkashif1">minalkashif1</a>
+<br><br>
+**Ayemish** - ayemish123@gmail.com <br>
+Github: <a href="https://github.com/ayemish">Ayemish</a>
+<br><br>
 **Syed Ayaan Ali** - syedayaanali789@gmail.com <br>
 Github: <a href="https://github.com/incognito-root">incognito-root</a> <br>
-Linkedin: <a href="https://www.linkedin.com/in/syed-ayaan-ali-82b40b246/">Syed Ayaan Ali</a>
 
-Project Link: [https://github.com/incognito-root/Ordering-Tablemaster](https://github.com/incognito-root/Ordering-Tablemaster)
+Project Link: [https://github.com/incognito-root/Ordering-Tablemaster](https://github.com/incognito-root/Admin-Tablemaster)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
